@@ -44,7 +44,18 @@ select @total_time  = sum(
 		--Se verifica si ambas fechas inicio y fin pertenecen al mismo día (sin considerar hora). 
 		--dateadd(day, datediff(day, 0, @start_date), 0): obtiene la fecha sin hora
 		when dateadd(day, datediff(day, 0, @start_date), 0) = dateadd(day, datediff(day, 0, @end_date), 0) then  
-			datediff(second, @start_date, @end_date)
+			case
+				--fecha de inicio fuera de horario y fecha de fin dentro del horario
+				when @start_date < d.[DATE] + begin_time and @end_date between d.[DATE] + begin_time and d.[DATE] + end_time then datediff(second, d.[DATE] + begin_time, @end_date)
+				--ambas fechas dentro del horario de trabajo
+				when @start_date >= d.[DATE] + begin_time and @end_date <= d.[DATE] + end_time then datediff(second, @start_date, @end_date)
+				--fecha inicio dentro del horario y fecha de fin fuera del horario
+				when @start_date between d.[DATE] + begin_time and d.[DATE] + end_time and @end_date > d.[DATE] + end_time then datediff(second, @start_date, d.[DATE] + end_time)
+				--ambas fechas fuera de rango
+				when @start_date < d.[DATE] + begin_time and @end_date > d.[DATE] + end_time then duration
+				--cualquier otro caso
+				else 0
+			end  
 		when d.[DATE] = dateadd(day, datediff(day, 0, @start_date), 0) then  
 			case
 				when @start_date < d.[DATE] + begin_time then duration
