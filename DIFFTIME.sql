@@ -78,3 +78,7 @@ where dbo.ES_FERIADO(d.[DATE])=0
 return isnull(@total_time,0)
 
 END
+go
+
+GRANT  EXEC  ON dbo.DIFFTIME TO [public]
+go

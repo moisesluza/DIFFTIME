@@ -45,4 +45,6 @@ END
 
 GO
 
+GRANT  EXEC  ON dbo.ES_FERIADO TO [public]
+GO
 

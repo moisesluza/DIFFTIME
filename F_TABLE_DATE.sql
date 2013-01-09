@@ -733,7 +733,7 @@ set @error = convert(int,@cr+@cr+
 isnull(@ErrorMessage,'Unknown Error')+@cr+
 '*******************************************************************'+@cr+@cr)
 
-return null
+return
 
 end
 
