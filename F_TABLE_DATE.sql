@@ -284,7 +284,7 @@ returns  @DATE table
 [YEAR_NAME]				[varchar] (4)	not null ,
 [YEAR_QUARTER_NAME]			[varchar] (7)	not null ,
 [YEAR_MONTH_NAME]			[varchar] (8)	not null ,
-[YEAR_MONTH_NAME_LONG]			[varchar] (14)	not null ,
+[YEAR_MONTH_NAME_LONG]			[varchar] (15)	not null ,
 [QUARTER_NAME]				[varchar] (2)	not null ,
 [MONTH_NAME]				[varchar] (3)	not null ,
 [MONTH_NAME_LONG]			[varchar] (9)	not null ,
