@@ -287,7 +287,7 @@ returns  @DATE table
 [YEAR_MONTH_NAME_LONG]			[varchar] (15)	not null ,
 [QUARTER_NAME]				[varchar] (2)	not null ,
 [MONTH_NAME]				[varchar] (3)	not null ,
-[MONTH_NAME_LONG]			[varchar] (9)	not null ,
+[MONTH_NAME_LONG]			[varchar] (10)	not null ,
 [WEEKDAY_NAME]				[varchar] (3)	not null ,
 [WEEKDAY_NAME_LONG]			[varchar] (9)	not null ,
 
